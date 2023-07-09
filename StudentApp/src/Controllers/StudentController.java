@@ -1,9 +1,10 @@
 package Controllers;
 
+import Domen.Person;
 import Domen.Student;
 import Services.StudentService;
 
-public class StudentController implements iPersonController<Student> {
+public class StudentController implements iPersonController<Student<Person>> {
     private final StudentService dataService = new StudentService();
 
     //Метод регистрации студената в базе данных

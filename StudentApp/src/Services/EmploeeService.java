@@ -4,15 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Domen.Emploee;
+import Domen.Person;
 
-public class EmploeeService implements iPersonService<Emploee> {
+public class EmploeeService implements iPersonService<Emploee<Person>> {
         private int count;
-    private List<Emploee> emploees;
+    private List<Emploee<Person>> emploees;
     public EmploeeService() {
-        this.emploees = new ArrayList<Emploee>();
+        this.emploees = new ArrayList<Emploee<Person>>();
     }
     @Override
-    public List<Emploee> getAll() {
+    public List<Emploee<Person>> getAll() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getAll'");
     }

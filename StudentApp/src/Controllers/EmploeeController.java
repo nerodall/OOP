@@ -1,10 +1,11 @@
 package Controllers;
 
 import Domen.Emploee;
+import Domen.Person;
 import Services.EmploeeService;
 //import Services.StudentService;
 
-public class EmploeeController implements iPersonController<Emploee> {
+public class EmploeeController implements iPersonController<Emploee<Person>> {
     private final EmploeeService empService = new EmploeeService();
 
     @Override
@@ -12,7 +13,7 @@ public class EmploeeController implements iPersonController<Emploee> {
         empService.create(firstName,age);
     }
 
-    public static <T extends Emploee> void paySalary(T person)
+    public static <T extends Emploee<Person>> void paySalary(T person)
     {
         System.out.println(person.getName()+" выплачена зарплата 10000р. ");
     }

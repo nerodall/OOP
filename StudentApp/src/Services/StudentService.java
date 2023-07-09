@@ -3,25 +3,26 @@ package Services;
 import java.util.ArrayList;
 import java.util.List;
 
+import Domen.Person;
 import Domen.PersonComparator;
 import Domen.Student;
 
-public class StudentService implements iPersonService<Student> {
+public class StudentService implements iPersonService<Student<Person>> {
     private int count;
-    private List<Student> students;
+    private List<Student<Person>> students;
 
     public StudentService() {
-        this.students = new ArrayList<Student>();
+        this.students = new ArrayList<Student<Person>>();
     }
 
     @Override
-    public List<Student> getAll() {
+    public List<Student<Person>> getAll() {
         return students;
     }
 
     @Override
     public void create(String firstName, int age) {
-        Student per = new Student(firstName,age,count);
+        Student<Person> per = new Student<>(firstName,age,count);
         count++;
         students.add(per);
     }    
@@ -29,7 +30,7 @@ public class StudentService implements iPersonService<Student> {
     public void sortByFIOStdLst()
     {
        // List<Student> newStudentList = new ArrayList<Student>(students);
-        students.sort( new PersonComparator<Student>());
+        students.sort( new PersonComparator<Student<Person>>());
         //return newStudentList;
     }
 

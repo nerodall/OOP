@@ -1,6 +1,6 @@
 package Domen;
 
-public class Student extends Person implements Comparable<Student> {
+public class Student<T extends Person> extends Person implements Comparable<Student<T>> {
 
     private int id;
 
@@ -9,28 +9,9 @@ public class Student extends Person implements Comparable<Student> {
         this.id = id;
     }
 
-    // private int age;
-    // private String name;
-
-    // public int getAge() {
-    // return age;
-    // }
-
-    // public String getName() {
-    // return name;
-    // }
-
     public int getId() {
         return id;
     }
-
-    // public void setAge(int age) {
-    // this.age = age;
-    // }
-
-    // public void setName(String name) {
-    // this.name = name;
-    // }
 
     public void setId(int id) {
         this.id = id;
@@ -42,7 +23,7 @@ public class Student extends Person implements Comparable<Student> {
     }
 
     @Override
-    public int compareTo(Student o) {
+    public int compareTo(Student<T> o) {
 
         System.out.println(super.getName() + " - " + o.getName());
         if (super.getAge() == o.getAge()) {
