@@ -15,4 +15,10 @@ public class ModelList implements iGetModel<List<Student>> {
     {
         return students;
     }
+
+    @Override
+    public void getStudentIdToDelete() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getStudentIdToDelete'");
+    }
 }

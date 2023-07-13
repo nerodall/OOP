@@ -12,7 +12,6 @@ import View.ViewEng;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        // System.out.println("Hello, World!");
 
         List<Student> students = new ArrayList<Student>();
         Student s1 = new Student("Сергей", 21, 101);
@@ -33,12 +32,19 @@ public class App {
 
         iGetModel<List<Student>> modelFile = fModel;
         iGetModel<List<Student>> model = new ModelList(students);
-        iGetView view = new ViewEng();
+
+        ///
+        // Русский интерфейс
+         iGetView view = new View();
+        // Англ. интерфейс
+        //iGetView view = new ViewEng();
 
         Controller control = new Controller(modelFile, view);
 
-        // control.update();
-        control.run();
+        // Русский интерфейс
+         control.run();
+        // Англ. интерфейс
+      //  control.runEng();
 
     }
 }

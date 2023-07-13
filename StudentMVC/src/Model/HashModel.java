@@ -1,7 +1,6 @@
 package Model;
 
 import java.util.HashMap;
-import java.util.List;
 
 import Controller.iGetModel;
 
@@ -15,6 +14,12 @@ public class HashModel implements iGetModel<HashMap<Long, Student>> {
     @Override
     public HashMap<Long, Student> getAllStudents() {
        return students;
+    }
+
+    @Override
+    public void getStudentIdToDelete() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getStudentIdToDelete'");
     }
     
 }

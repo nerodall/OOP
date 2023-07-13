@@ -9,7 +9,7 @@ import java.util.List;
 
 import Controller.iGetModel;
 
-public class ModelFile implements iGetModel {
+public class ModelFile implements iGetModel<List<Student>> {
     private String fileName;
 
     public ModelFile(String fileName) {
@@ -54,6 +54,12 @@ public class ModelFile implements iGetModel {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    @Override
+    public void getStudentIdToDelete() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getStudentIdToDelete'");
     }
 
 }
