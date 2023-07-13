@@ -1,5 +1,6 @@
 package View;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 
@@ -8,10 +9,10 @@ import Model.Student;
 
 public class View implements iGetView {
 
-    public void printAllStudents(List<Student> students)
+    public void printAllStudents(HashMap<Long, Student> students)
     {
         System.out.println("------список студентов--------");
-        for(Student stud: students)
+        for(Student stud: students.values())
         {
             System.out.println(stud);
         }
@@ -54,5 +55,6 @@ public class View implements iGetView {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getStudentIdToUpdate'");
     }
-    
+
+
 }

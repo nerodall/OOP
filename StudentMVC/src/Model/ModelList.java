@@ -1,24 +1,26 @@
 package Model;
 
+import java.util.HashMap;
 import java.util.List;
 
 import Controller.iGetModel;
 
-public class ModelList implements iGetModel<List<Student>> {
-    private List<Student> students;
+public class ModelList implements iGetModel<HashMap<Long,Student>> {
+    private HashMap<Long,Student> students;
 
-    public ModelList(List<Student> students) {
+    public ModelList(HashMap<Long,Student> students) {
         this.students = students;
     }
 
-    public List<Student> getAllStudents()
+    public HashMap<Long,Student> getAllStudents()
     {
         return students;
     }
 
     @Override
-    public void getStudentIdToDelete() {
+    public HashMap<Long, Student> getStudentIdToDelete() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getStudentIdToDelete'");
     }
 }
+

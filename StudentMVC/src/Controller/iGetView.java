@@ -1,11 +1,12 @@
 package Controller;
 
+import java.util.HashMap;
 import java.util.List;
 
 import Model.Student;
 
 public interface iGetView {
-    void printAllStudents(List<Student> students);
+    void printAllStudents(HashMap<Long, Student> students);
 
     // Метод выводит информацию о каждом студенте на консоль
     void printAllStudent(List<Student> students);

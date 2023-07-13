@@ -1,22 +1,23 @@
 package Controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import Model.Student;
 
 public class Controller {
 
-    private iGetModel<List<Student>> model;
+    private iGetModel<HashMap<Long, Student>> model;
     private iGetView view;
-    private List<Student> students = new ArrayList<>();
+    private HashMap<Long, Student> students = new HashMap<Long, Student>();
 
-    public Controller(iGetModel<List<Student>> model, iGetView view) {
+    public Controller(iGetModel<HashMap<Long, Student>> model, iGetView view) {
         this.model = model;
         this.view = view;
     }
 
-    private boolean testData(List<Student> students) {
+    private boolean testData(HashMap<Long, Student> students) {
         if (students.size() > 0) {
             return true;
         } else {
@@ -73,6 +74,7 @@ public class Controller {
                     view.printAllStudents(model.getAllStudents());
                     break;
                 case DELETE:
+                    
 
             }
 

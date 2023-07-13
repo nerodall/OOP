@@ -1,7 +1,9 @@
 package View;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Map.Entry;
 
 import Controller.iGetView;
 import Model.Student;
@@ -9,9 +11,9 @@ import Model.Student;
 public class ViewEng implements iGetView {
 
     @java.lang.Override
-    public void printAllStudents(List<Student> students) {
+    public void printAllStudents(HashMap<Long, Student> students) {
         System.out.println("------- students list --------");
-        for (Student stud : students) {
+        for (Entry<Long, Student> stud : students.entrySet()) {
             System.out.println(stud);
         }
         System.out.println("===============================");

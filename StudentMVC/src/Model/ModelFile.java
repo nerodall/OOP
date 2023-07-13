@@ -5,11 +5,13 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map.Entry;
 
 import Controller.iGetModel;
 
-public class ModelFile implements iGetModel<List<Student>> {
+public class ModelFile implements iGetModel<HashMap<Long,Student>> {
     private String fileName;
 
     public ModelFile(String fileName) {
@@ -23,18 +25,20 @@ public class ModelFile implements iGetModel<List<Student>> {
     }
 
     @Override
-    public List<Student> getAllStudents() {
-        List<Student> students = new ArrayList<Student>();
+    public HashMap<Long,Student> getAllStudents() {
+        HashMap<Long,Student> students = new HashMap<Long,Student>();
         try {
             File file = new File(fileName);
             FileReader fr = new FileReader(file);
             BufferedReader reader = new BufferedReader(fr);
             String line = reader.readLine();
+            Long i = (long) 1;
             while (line != null) {
                 String[] param = line.split(" ");
-                Student pers = new Student(param[0], Integer.parseInt(param[1]), Integer.parseInt(param[2]));
-                students.add(pers);
+                Student pers = new Student(param[1], Integer.parseInt(param[2]), Integer.parseInt(param[3]));
+                students.put(i, pers);
                 line = reader.readLine();
+                i++;
             }
 
         } catch (Exception e) {
@@ -44,10 +48,10 @@ public class ModelFile implements iGetModel<List<Student>> {
         return students;
     }
 
-    public void saveAllStudentToFile(List<Student> students) {
+    public void saveAllStudentToFile(HashMap<Long,Student> students) {
         try (FileWriter fw = new FileWriter(fileName, true)) {
-            for (Student pers : students) {
-                fw.write(pers.getName() + " " + pers.getAge() + " " + pers.getId());
+            for (Entry<Long, Student> pers : students.entrySet()) {
+                fw.write(pers.getKey() + " " + pers.getValue().getName() + " " + pers.getValue().getAge() + " " + pers.getValue().getId());
                 fw.append('\n');
             }
             fw.flush();
@@ -57,9 +61,15 @@ public class ModelFile implements iGetModel<List<Student>> {
     }
 
     @Override
-    public void getStudentIdToDelete() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getStudentIdToDelete'");
+    public HashMap<Long, Student> getStudentIdToDelete() {
+       HashMap<Long, Student> students = getAllStudents();
+        
+
+       return students;
     }
+
+
+
+
 
 }

@@ -17,9 +17,10 @@ public class HashModel implements iGetModel<HashMap<Long, Student>> {
     }
 
     @Override
-    public void getStudentIdToDelete() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getStudentIdToDelete'");
+    public HashMap<Long, Student> getStudentIdToDelete() {
+        return students;
     }
+
+
     
 }
