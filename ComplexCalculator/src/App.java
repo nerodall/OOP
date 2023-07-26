@@ -1,11 +1,23 @@
 public class App {
     public static void main(String[] args) throws Exception {
+        //Создание класса для логирования событий
         Logs log = new Logs();
-        Complex com1 = new Complex(2, 3, log);
-        Complex com2 = new Complex(-1, 1, log);
-        Complex result = com1.multiply(com2);
-        System.out.println(result);
+        //создание класса для отображения меню программы
+        View view = new View();
+        //создание экземпляров класса комплексных чисел
+        Complex com1 = new Complex(log);
+        Complex com2 = new Complex(log);
+        //Создание контроллера. В нем заложено взаимодествие с меню программы
+        Controller app = new Controller(com1, com2, view);
 
-        com1.getNum1();
+        //Установка значений комплесных чисел пользователем
+        com1.setNum1(app.getNum("Введите действительную часть первого числа "));
+        com1.setNum2(app.getNum("Введите мнимую часть первого числа "));
+
+        com2.setNum1(app.getNum("Введите действительную часть первого числа "));
+        com2.setNum2(app.getNum("Введите мнимую часть первого числа "));
+
+        //Запуск меню программы
+        app.run();
     }
 }
